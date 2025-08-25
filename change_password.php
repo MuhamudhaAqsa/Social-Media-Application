@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // IMPORTANT: compare typed old password with the HASH in DB
             $message = "❌ Old password is incorrect.";
         } elseif (password_verify($new, $currentHash)) {
-            $message = "❌ New password cannot be the same as the current password.";
+            $message = "❌ new password cannot be one of the last three previously used";
         } else {
             // 2) Check last 3 password hashes in history
             $hist = $conn->prepare("
