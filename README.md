@@ -10,10 +10,11 @@ All user data, including passwords and posts, is stored securely in the database
 ![Signup Page](WelcomePage.png)
 ![Signup Page](SignUpPage.png)
 ![Signup Page](LoginPageofApp.png)
-![Signup Page](change.png)
-![Signup Page](old-password.png)
+
 ![Signup Page](post.png)
 ![Signup Page](private-post.png)
 ![Signup Page](public-post.png)
+![Signup Page](change.png)
+![Signup Page](old-password.png)
 
 
