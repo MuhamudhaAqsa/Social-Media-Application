@@ -7,7 +7,7 @@ Post Messages in text format with visibility options:
 Public Posts – visible to all users.
 Private Posts – visible only to the creator.
 All user data, including passwords and posts, is stored securely in the database. The application is designed with security and scalability in mind, similar to core features of social media platforms.
-
+![Signup Page](WelcomePage.png)
 ![Signup Page](signup.png)
 ![Signup Page](loginpage.png)
 ![Signup Page](change.png)
