@@ -1,5 +1,3 @@
-
-
 <?php
 // Show all PHP errors (for debugging)
 error_reporting(E_ALL);
@@ -24,7 +22,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($result && password_verify($password, $result['password'])) {
         // Store user session
         $_SESSION['user_id'] = $result['id'];
-        $message = "✅ Welcome! You are logged in.";
+
+        // ✅ Redirect to feed.php after login
+        header("Location: feed.php");
+        exit();
     } else {
         $message = "❌ Invalid email or password.";
     }
@@ -35,26 +36,108 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html>
 <head>
     <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #ffe6f2; /* light pink */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-box {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            width: 350px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #d63384; /* pink heading */
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-align: left;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #d63384;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #b82e70;
+        }
+
+        p {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .message {
+            margin: 15px 0;
+            padding: 10px;
+            border-radius: 6px;
+        }
+
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #d63384;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <h2>Login</h2>
-    <form method="POST">
-        <label>Email:</label>
-        <input type="email" name="email" required><br><br>
-        
-        <label>Password:</label>
-        <input type="password" name="password" required><br><br>
-        
-        <button type="submit">Login</button>
-    </form>
+    <div class="login-box">
+        <h2>Login</h2>
+        <form method="POST">
+            <label>Email:</label>
+            <input type="email" name="email" required>
+            
+            <label>Password:</label>
+            <input type="password" name="password" required>
+            
+            <button type="submit">Login</button>
+        </form>
 
-    <!-- Show login message -->
-    <p><?php echo $message; ?></p>
-
-    <!-- Show welcome and logout link if logged in -->
-    <?php if (isset($_SESSION['user_id'])): ?>
-        <h3>Welcome, User ID: <?php echo $_SESSION['user_id']; ?></h3>
-        <a href="logout.php">Logout</a>
-    <?php endif; ?>
+        <!-- Show error message if login fails -->
+        <?php if ($message): ?>
+            <p class="message error"><?php echo $message; ?></p>
+        <?php endif; ?>
+    </div>
 </body>
 </html>

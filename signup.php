@@ -1,5 +1,5 @@
 <?php
-include "db.php"; // make sure this file exists and works
+include "db.php"; 
 
 $message = "";
 
