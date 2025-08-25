@@ -14,7 +14,6 @@ All user data, including passwords and posts, is stored securely in the database
 ![Signup Page](post.png)
 ![Signup Page](private-post.png)
 ![Signup Page](public-post.png)
-![Signup Page](change.png)
-![Signup Page](old-password.png)
+![Signup Page](PasswordCheck.png)
 
 
